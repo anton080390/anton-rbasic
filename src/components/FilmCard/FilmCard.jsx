@@ -1,7 +1,7 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Typography, Box } from "@mui/material";
 import Button from "@mui/material/Button";
 
 const cardMediaStyles = {
@@ -43,26 +43,24 @@ export default function FilmCard({ id, name, time, image, handleFilmClick }) {
           image={image}
           alt={name}
         />
-        <div style={overlayStyles}>
-          <div style={filmStyles}>
-            <p
+        <Box sx={overlayStyles}>
+          <Box sx={filmStyles}>
+            <Typography
               style={{
                 margin: "4px 0 4px",
-                fontSize: "20px",
                 textAlign: "left",
               }}
             >
               {name}
-            </p>
-            <p
+            </Typography>
+            <Typography
               style={{
                 margin: "4px 0 15px",
-                fontSize: "20px",
                 textAlign: "left",
               }}
             >
               {time}
-            </p>
+            </Typography>
             <Button
               variant="contained"
               style={{
@@ -77,8 +75,8 @@ export default function FilmCard({ id, name, time, image, handleFilmClick }) {
             >
               Show ID
             </Button>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </CardActionArea>
     </Card>
   );
