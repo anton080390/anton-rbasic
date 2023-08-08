@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 const cardMediaStyles = {
   maxWidth: 395,
   height: 222,
+  position: "relative",
 };
 
 const overlayStyles = {
@@ -36,48 +37,46 @@ export default function FilmCard({ id, name, time, image, handleFilmClick }) {
 
   return (
     <Card style={cardMediaStyles}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          style={cardMediaStyles}
-          image={image}
-          alt={name}
-        />
-        <Box sx={overlayStyles}>
-          <Box sx={filmStyles}>
-            <Typography
-              style={{
-                margin: "4px 0 4px",
-                textAlign: "left",
-              }}
-            >
-              {name}
-            </Typography>
-            <Typography
-              style={{
-                margin: "4px 0 15px",
-                textAlign: "left",
-              }}
-            >
-              {time}
-            </Typography>
-            <Button
-              variant="contained"
-              style={{
-                border: "1px solid #E50914",
-                background: "#E50914",
-                width: "100px",
-                height: "30px",
-                color: "#fff",
-                margin: "4px 0 20px",
-              }}
-              onClick={handleButtonClick}
-            >
-              Show ID
-            </Button>
-          </Box>
+      <CardMedia
+        component="img"
+        style={cardMediaStyles}
+        image={image}
+        alt={name}
+      />
+      <Box sx={overlayStyles}>
+        <Box sx={filmStyles}>
+          <Typography
+            style={{
+              margin: "4px 0 4px",
+              textAlign: "left",
+            }}
+          >
+            {name}
+          </Typography>
+          <Typography
+            style={{
+              margin: "4px 0 15px",
+              textAlign: "left",
+            }}
+          >
+            {time}
+          </Typography>
+          <Button
+            variant="contained"
+            style={{
+              border: "1px solid #E50914",
+              background: "#E50914",
+              width: "100px",
+              height: "30px",
+              color: "#fff",
+              margin: "4px 0 20px",
+            }}
+            onClick={handleButtonClick}
+          >
+            Show ID
+          </Button>
         </Box>
-      </CardActionArea>
+      </Box>
     </Card>
   );
 }
