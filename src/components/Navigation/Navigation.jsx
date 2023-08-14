@@ -8,16 +8,18 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { NavLink } from "react-router-dom";
+import { MENU } from "../constants/constantns";
 import logoImage from "./logo.png";
+import "./Navigation.css";
 
-const pages = ["Home", "Movies", "TV Show"];
+const pages = ["Home", "Films", "TV Show"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
+function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -37,7 +39,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "rgba(0, 0, 0, 1)" }}>
+    <AppBar position="static" sx={{ backgroundColor: "rgba(20, 20,20, 0.5)" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar
@@ -78,13 +80,14 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                  <Typography>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -104,16 +107,36 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              display: { xs: "none", md: "flex" },
+            }}
+          >
+            <Box
+              className="navLinkContainer"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                paddingRight: "200px",
+              }}
+            >
+              {MENU.map(({ name, link }, index) => (
+                <NavLink
+                  key={index}
+                  className={({ isActive }) =>
+                    `navLink ${isActive ? "isActive" : ""}`
+                  }
+                  to={link}
+                >
+                  {name}
+                </NavLink>
+              ))}
+            </Box>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -150,4 +173,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+
+export default Navigation;
