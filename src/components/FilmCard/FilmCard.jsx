@@ -1,8 +1,10 @@
-import * as React from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea, Typography, Box } from "@mui/material";
-import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+import { DEFAULT_IMAGE } from "../constants/constantns"; // Обратите внимание на путь
 
 const cardMediaStyles = {
   maxWidth: 395,
@@ -30,18 +32,26 @@ const filmStyles = {
   alignItems: "left",
 };
 
-export default function FilmCard({ id, name, time, image, handleFilmClick }) {
-  const handleButtonClick = () => {
-    handleFilmClick(id);
-  };
+const linkStyles = {
+  border: "1px solid #E50914",
+  background: "#E50914",
+  width: "100px",
+  height: "30px",
+  color: "#fff",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textDecoration: "none",
+};
 
+export default function FilmCard({ id, title, description, image, premiered }) {
   return (
     <Card style={cardMediaStyles}>
       <CardMedia
         component="img"
         style={cardMediaStyles}
-        image={image}
-        alt={name}
+        image={image || DEFAULT_IMAGE}
+        alt={title}
       />
       <Box sx={overlayStyles}>
         <Box sx={filmStyles}>
@@ -51,7 +61,7 @@ export default function FilmCard({ id, name, time, image, handleFilmClick }) {
               textAlign: "left",
             }}
           >
-            {name}
+            {title}
           </Typography>
           <Typography
             style={{
@@ -59,22 +69,11 @@ export default function FilmCard({ id, name, time, image, handleFilmClick }) {
               textAlign: "left",
             }}
           >
-            {time}
+            {premiered}
           </Typography>
-          <Button
-            variant="contained"
-            style={{
-              border: "1px solid #E50914",
-              background: "#E50914",
-              width: "100px",
-              height: "30px",
-              color: "#fff",
-              margin: "4px 0 20px",
-            }}
-            onClick={handleButtonClick}
-          >
+          <Link to={`/films/${id}`} style={linkStyles}>
             Show ID
-          </Button>
+          </Link>
         </Box>
       </Box>
     </Card>
