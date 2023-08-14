@@ -5,3 +5,16 @@ p {
   color: #fff;
   margin: 1rem;
 }
+
+.footLink {
+  color: white;
+  margin-right: 1.5rem;
+  text-decoration: none;
+}
+
+.footLink:hover {
+  color: blue;
+}
+.whiteNavLink {
+  color: white;
+}
