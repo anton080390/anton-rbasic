@@ -2,18 +2,7 @@ import React from "react";
 import Rating from "@mui/material/Rating";
 import "../Pages/Page.css";
 
-function Header({
-  name,
-  rating,
-  genres,
-  schedule,
-  premiered,
-  image,
-  activeTab,
-  handleChangeTab,
-  summary,
-  status,
-}) {
+function Header({ name, rating, genres, schedule, premiered, image }) {
   return (
     <div
       style={{
