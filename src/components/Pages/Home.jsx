@@ -133,7 +133,7 @@ function Home() {
               modules={[Navigation]}
               className="NavSwiper"
               spaceBetween={30}
-              slidesPerView={isMobile ? 2 : 4} // Устанавливаем 2, если мобильное устройство
+              slidesPerView={isMobile ? 2 : 4}
               theme={theme}
               style={{
                 margin: "40px 1rem",
@@ -181,7 +181,7 @@ function Home() {
             modules={[Navigation]}
             className="NavSwiper"
             spaceBetween={30}
-            slidesPerView={isMobile ? 2 : 4} // Устанавливаем 2, если мобильное устройство
+            slidesPerView={isMobile ? 2 : 4}
             style={{ margin: "40px 1rem", backgroundColor: "black" }}
           >
             {comedyFilms?.map((show) => (
