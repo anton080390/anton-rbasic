@@ -17,6 +17,7 @@ import { red } from "@mui/material/colors";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Page.css";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const theme = createTheme({
   palette: {
@@ -48,9 +49,7 @@ function Home() {
     "https://dolphin-app-pc6ii.ondigitalocean.app/article"
   );
 
-  // useEffect(() => {
-  //   searchRef.current.focus();
-  // }, []);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const handleCardClick = (id) => {
     setSelectedFilm(id);
@@ -89,19 +88,6 @@ function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* 
-        <input
-          type="text"
-          value={apiSearch}
-          onChange={handleSearch}
-          ref={searchRef}
-          style={{
-            color: "#fff",
-            backgroundColor: "rgba(200, 200, 200, .6)",
-            height: "30px",
-            border: "none",
-          }}
-        /> */}
       </Grid>
       <h2>{selectedFilm}</h2>
       <Grid container spacing={2} sx={{ padding: "15px" }}>
@@ -147,7 +133,7 @@ function Home() {
               modules={[Navigation]}
               className="NavSwiper"
               spaceBetween={30}
-              slidesPerView={4}
+              slidesPerView={isMobile ? 2 : 4} // Устанавливаем 2, если мобильное устройство
               theme={theme}
               style={{
                 margin: "40px 1rem",
@@ -195,7 +181,7 @@ function Home() {
             modules={[Navigation]}
             className="NavSwiper"
             spaceBetween={30}
-            slidesPerView={4}
+            slidesPerView={isMobile ? 2 : 4} // Устанавливаем 2, если мобильное устройство
             style={{ margin: "40px 1rem", backgroundColor: "black" }}
           >
             {comedyFilms?.map((show) => (
