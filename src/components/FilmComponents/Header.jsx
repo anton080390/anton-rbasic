@@ -11,39 +11,46 @@ function Header({ name, rating, genres, schedule, premiered, image }) {
         alignItems: "start",
         width: "100%",
         padding: "20px",
+        flexDirection: "column",
       }}
     >
       <div style={{ marginLeft: "0.2rem" }}>
-        <div style={{ display: "flex", alignItems: "left", fontSize: "1em" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "left",
+            fontSize: "1em",
+            flexWrap: "wrap",
+          }}
+        >
           <h1 style={{ color: "rgba(228, 228, 228)" }}>{name}</h1>
-          <p
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            {rating && rating.average !== null && (
-              <>
-                <Rating
-                  name="read-only"
-                  value={rating.average / 2}
-                  max={5}
-                  size="medium"
-                  style={{ color: "rgba(209, 46, 39)", marginRight: "5px" }}
-                  readOnly
-                />
-                <span
-                  style={{
-                    fontWeight: "bold",
-                    color: "#FFD700",
-                    fontSize: "2em",
-                  }}
-                >
-                  {rating.average.toFixed(1)}
-                </span>
-              </>
-            )}
-          </p>
+          {rating && rating.average !== null && (
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "1rem",
+              }}
+            >
+              <Rating
+                name="read-only"
+                value={rating.average / 2}
+                max={5}
+                size="medium"
+                style={{ color: "rgba(209, 46, 39)" }}
+                readOnly
+              />
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "#FFD700",
+                  fontSize: "2em",
+                }}
+              >
+                {rating.average.toFixed(1)}
+              </span>
+            </p>
+          )}
         </div>
         <p
           style={{
@@ -75,7 +82,7 @@ function Header({ name, rating, genres, schedule, premiered, image }) {
         <img
           src={image.medium}
           alt={name}
-          style={{ width: "70%", height: "auto", marginRight: "5rem" }}
+          style={{ width: "100%", height: "auto", marginTop: "1rem" }}
         />
       </div>
     </div>
