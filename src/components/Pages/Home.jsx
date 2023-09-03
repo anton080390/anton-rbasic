@@ -92,7 +92,7 @@ function Home() {
       <h2>{selectedFilm}</h2>
       <Grid container spacing={2} sx={{ padding: "15px" }}>
         {apiData.map(({ show }) => (
-          <Grid item xs={3} key={show.id}>
+          <Grid item xs={6} sm={6} md={4} key={show.id}>
             <FilmCard
               id={show.id}
               title={show.name}
@@ -104,6 +104,7 @@ function Home() {
           </Grid>
         ))}
       </Grid>
+
       <Grid container>
         <Grid item xs={12}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>

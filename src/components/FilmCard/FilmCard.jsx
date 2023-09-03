@@ -8,7 +8,7 @@ import { DEFAULT_IMAGE } from "../constants/constantns";
 
 const cardMediaStyles = {
   maxWidth: 300,
-  maxheight: 450,
+  maxHeight: 450,
   position: "relative",
 };
 
@@ -30,7 +30,7 @@ const filmStyles = {
   display: "flex",
   flexDirection: "column",
   alignItems: "left",
-  bottom: "150px",
+  bottom: "10px", // Updated position for mobile view
 };
 
 const linkStyles = {
@@ -44,40 +44,45 @@ const linkStyles = {
   justifyContent: "center",
   textDecoration: "none",
   marginTop: "1rem",
+  position: "absolute",
+  bottom: "10px", // Updated position for mobile view
+  left: "10px", // Updated position for mobile view
 };
 
 export default function FilmCard({ id, title, description, image, premiered }) {
   return (
-    <Card style={cardMediaStyles}>
-      <CardMedia
-        component="img"
-        style={cardMediaStyles}
-        image={image || DEFAULT_IMAGE}
-        alt={title}
-      />
-      <Box sx={overlayStyles}>
-        <Box sx={filmStyles}>
-          <Typography
-            style={{
-              margin: "4px 0 4px",
-              textAlign: "left",
-            }}
-          >
-            {title}
-          </Typography>
-          <Typography
-            style={{
-              margin: "4px 0 15px",
-              textAlign: "left",
-            }}
-          >
-            {premiered}
-          </Typography>
-          <Link to={`/films/${id}`} style={linkStyles}>
-            Show more
-          </Link>
+    <Link to={`/films/${id}`} style={{ textDecoration: "none" }}>
+      <Card style={cardMediaStyles}>
+        <CardMedia
+          component="img"
+          style={cardMediaStyles}
+          image={image || DEFAULT_IMAGE}
+          alt={title}
+        />
+        <Box sx={overlayStyles}>
+          <Box sx={filmStyles}>
+            <Typography
+              style={{
+                margin: "4px 0 4px",
+                textAlign: "left",
+              }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              style={{
+                margin: "4px 0 15px",
+                textAlign: "left",
+              }}
+            >
+              {premiered}
+            </Typography>
+            <Link to={`/films/${id}`} style={linkStyles}>
+              Show more
+            </Link>
+          </Box>
         </Box>
-      </Box>
-    </Card>
+      </Card>
+    </Link>
   );
 }

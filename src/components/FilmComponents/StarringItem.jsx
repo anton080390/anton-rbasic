@@ -14,6 +14,7 @@ function StarringItem({ showId }) {
   const [allActors, setAllActors] = useState([]);
   const [visibleActors, setVisibleActors] = useState([]);
   const [showAllActors, setShowAllActors] = useState(false);
+  const isMobile = window.innerWidth <= 600; // Определение мобильного устройства
 
   useEffect(() => {
     async function fetchActors() {
@@ -23,25 +24,25 @@ function StarringItem({ showId }) {
         );
         const cast = response.data;
         setAllActors(cast);
-        setVisibleActors(cast.slice(0, 4));
+        setVisibleActors(cast.slice(0, isMobile ? 1 : 4));
       } catch (error) {
         console.error(error);
       }
     }
     fetchActors();
-  }, [showId]);
+  }, [showId, isMobile]);
 
   const toggleShowAllActors = () => {
     setShowAllActors(!showAllActors);
     if (!showAllActors) {
       setVisibleActors(allActors);
     } else {
-      setVisibleActors(allActors.slice(0, 4));
+      setVisibleActors(allActors.slice(0, isMobile ? 1 : 4));
     }
   };
 
   let showAllButton = null;
-  if (allActors.length > 4) {
+  if (allActors.length > (isMobile ? 1 : 4)) {
     showAllButton = (
       <button
         style={{
@@ -77,7 +78,7 @@ function StarringItem({ showId }) {
       >
         <Grid container spacing={2}>
           {visibleActors.map((actor) => (
-            <Grid item xs={6} sm={3} key={actor.person.id}>
+            <Grid item xs={12} sm={isMobile ? 12 : 3} key={actor.person.id}>
               <Card
                 component={Link}
                 to={`/actor/${actor.person.id}`}
