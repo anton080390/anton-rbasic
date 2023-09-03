@@ -20,7 +20,7 @@ import { red } from "@mui/material/colors";
 import { useDispatch, useSelector } from "react-redux";
 import useRequest from "../../components/hooks/useRequest";
 import { setSearch } from "../store/SearchSlice";
-import Drawer from "@mui/material/Drawer"; // Импортируем компонент Drawer
+import Drawer from "@mui/material/Drawer";
 
 const pages = ["Home", "Films", "TV Show"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -38,7 +38,7 @@ const theme = createTheme({
 export default function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false); // Состояние для открытия/закрытия бокового меню
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const dispatch = useDispatch();
   const apiSearch = useSelector((state) => state.search.value);
@@ -67,11 +67,11 @@ export default function Navigation() {
   };
 
   const handleDrawerOpen = () => {
-    setIsDrawerOpen(true); // Открыть боковое меню
+    setIsDrawerOpen(true);
   };
 
   const handleDrawerClose = () => {
-    setIsDrawerOpen(false); // Закрыть боковое меню
+    setIsDrawerOpen(false);
   };
 
   const apiData = useRequest(
@@ -100,7 +100,6 @@ export default function Navigation() {
               }}
             />
 
-            {/* Добавляем кнопку для открытия бокового меню */}
             <IconButton
               size="large"
               aria-label="open drawer"
@@ -222,6 +221,11 @@ export default function Navigation() {
               key={index}
               to={MENU[index].link}
               className="drawerNavLink"
+              style={{
+                color: "red",
+                fontWeight: "bold",
+                margin: "10px",
+              }}
             >
               {page}
             </NavLink>
