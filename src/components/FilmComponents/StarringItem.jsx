@@ -14,7 +14,7 @@ function StarringItem({ showId }) {
   const [allActors, setAllActors] = useState([]);
   const [visibleActors, setVisibleActors] = useState([]);
   const [showAllActors, setShowAllActors] = useState(false);
-  const isMobile = window.innerWidth <= 600; // Определение мобильного устройства
+  const isMobile = window.innerWidth <= 600;
 
   useEffect(() => {
     async function fetchActors() {

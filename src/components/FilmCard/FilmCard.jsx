@@ -30,7 +30,7 @@ const filmStyles = {
   display: "flex",
   flexDirection: "column",
   alignItems: "left",
-  bottom: "10px", // Updated position for mobile view
+  bottom: "10px",
 };
 
 const linkStyles = {
@@ -45,9 +45,11 @@ const linkStyles = {
   textDecoration: "none",
   marginTop: "1rem",
   position: "absolute",
-  bottom: "10px", // Updated position for mobile view
-  left: "10px", // Updated position for mobile view
+  bottom: "10px",
+  left: "10px",
 };
+
+const isMobile = window.innerWidth <= 600;
 
 export default function FilmCard({ id, title, description, image, premiered }) {
   return (
@@ -69,17 +71,21 @@ export default function FilmCard({ id, title, description, image, premiered }) {
             >
               {title}
             </Typography>
-            <Typography
-              style={{
-                margin: "4px 0 15px",
-                textAlign: "left",
-              }}
-            >
-              {premiered}
-            </Typography>
-            <Link to={`/films/${id}`} style={linkStyles}>
-              Show more
-            </Link>
+            {!isMobile && (
+              <Typography
+                style={{
+                  margin: "4px 0 15px",
+                  textAlign: "left",
+                }}
+              >
+                {premiered}
+              </Typography>
+            )}
+            {!isMobile && (
+              <Link to={`/films/${id}`} style={linkStyles}>
+                Show more
+              </Link>
+            )}
           </Box>
         </Box>
       </Card>
