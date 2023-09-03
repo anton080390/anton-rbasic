@@ -7,7 +7,7 @@ function Main() {
   return (
     <div className="App">
       <Navigation />
-      <Grid container>
+      <Grid container sx={{ marginTop: "4rem", minHeight: "100vh" }}>
         <Outlet />
       </Grid>
       <Footer />

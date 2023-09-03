@@ -4,6 +4,11 @@ import Films from "./components/Pages/Films";
 import Home from "./components/Pages/Home";
 import NotFound from "./components/Pages/NotFound";
 import FilmDetails from "./components/Pages/FilmDetails";
+import Register from "./components/Pages/Auth/Register";
+import Auth from "./components/Pages/Auth/Register";
+import PrivateRoute from "./components/PriveteRoute/PrivetRoute";
+import Actor from "./components/Pages/Actor";
+import ViewAllShows from "./components/Pages/ViewAllShows";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +22,34 @@ const router = createBrowserRouter([
       },
       {
         path: "/films",
-        element: <Films />,
+        element: (
+          <PrivateRoute>
+            <Films />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/films/:filmId",
         element: <FilmDetails />,
+      },
+      {
+        path: "/actor/:actorId",
+        element: <Actor />,
+      },
+      {
+        path: "/shows/:showType",
+        element: <ViewAllShows />,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "register",
+        element: <Register />,
       },
     ],
   },

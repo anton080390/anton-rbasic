@@ -6,9 +6,9 @@ import {
   CardMedia,
   Typography,
   Container,
-  Button,
   Grid,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function StarringItem({ showId }) {
   const [allActors, setAllActors] = useState([]);
@@ -23,7 +23,7 @@ function StarringItem({ showId }) {
         );
         const cast = response.data;
         setAllActors(cast);
-        setVisibleActors(cast.slice(0, 4)); // Показывать сразу 4 актера
+        setVisibleActors(cast.slice(0, 4));
       } catch (error) {
         console.error(error);
       }
@@ -43,16 +43,18 @@ function StarringItem({ showId }) {
   let showAllButton = null;
   if (allActors.length > 4) {
     showAllButton = (
-      <Button
+      <button
         style={{
           marginLeft: "3rem",
           border: "none",
           color: "rgb(235, 84, 68)",
+          background: "transparent",
+          cursor: "pointer",
         }}
         onClick={toggleShowAllActors}
       >
         {showAllActors ? "Show Less" : "Show All"}
-      </Button>
+      </button>
     );
   }
 
@@ -77,6 +79,8 @@ function StarringItem({ showId }) {
           {visibleActors.map((actor) => (
             <Grid item xs={6} sm={3} key={actor.person.id}>
               <Card
+                component={Link}
+                to={`/actor/${actor.person.id}`}
                 sx={{
                   borderRadius: "5%",
                   backgroundColor: "rgba(20, 20, 20)",
@@ -86,6 +90,11 @@ function StarringItem({ showId }) {
                   minHeight: "300px",
                   border: "none",
                   boxShadow: "none",
+                  textDecoration: "none",
+                  color: "inherit",
+                  "&:hover": {
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+                  },
                 }}
               >
                 <CardContent
@@ -95,7 +104,7 @@ function StarringItem({ showId }) {
                     width: "100%",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-arround",
+                    justifyContent: "space-around",
                     border: "none",
                   }}
                 >
