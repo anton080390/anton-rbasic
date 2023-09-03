@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../FilmComponents/Header";
 import BodyDetails from "../FilmComponents/BodyDetails";
 import Footer from "../FilmComponents/Footer";
-import StarringItem from "../FilmComponents/StarringItem"; // Импортируйте новый компонент
+import StarringItem from "../FilmComponents/StarringItem";
 
 function FilmDetails() {
   const { filmId } = useParams();
@@ -60,7 +60,6 @@ function FilmDetails() {
       <div style={{ width: "100%" }}>
         <StarringItem showId={filmId} />
       </div>
-      <Footer />
     </>
   );
 }

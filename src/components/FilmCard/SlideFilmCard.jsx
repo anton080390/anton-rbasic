@@ -5,11 +5,14 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import { DEFAULT_IMAGE } from "../constants/constantns";
+import "../Pages/Page.css";
 
-const cardMediaStyles = {
-  maxWidth: 300,
-  maxheight: 450,
+const slideCardMediaStyles = {
+  maxWidth: 470,
+  height: 220,
   position: "relative",
+  objectPosition: "top",
+  backgroundColor: "black",
 };
 
 const overlayStyles = {
@@ -30,7 +33,7 @@ const filmStyles = {
   display: "flex",
   flexDirection: "column",
   alignItems: "left",
-  bottom: "150px",
+  bottom: "2.5rem",
 };
 
 const linkStyles = {
@@ -46,12 +49,18 @@ const linkStyles = {
   marginTop: "1rem",
 };
 
-export default function FilmCard({ id, title, description, image, premiered }) {
+export default function SlideFilmCard({
+  id,
+  title,
+  description,
+  image,
+  premiered,
+}) {
   return (
-    <Card style={cardMediaStyles}>
+    <Card style={slideCardMediaStyles} className="slideFilmCard">
       <CardMedia
         component="img"
-        style={cardMediaStyles}
+        style={slideCardMediaStyles}
         image={image || DEFAULT_IMAGE}
         alt={title}
       />

@@ -1,4 +1,5 @@
 import * as React from "react";
+import TextField from "@mui/material/TextField";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,17 +16,37 @@ import { NavLink } from "react-router-dom";
 import { MENU } from "../constants/constantns";
 import logoImage from "./logo.png";
 import "./Navigation.css";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { red } from "@mui/material/colors";
+import { useDispatch, useSelector } from "react-redux";
+import useRequest from "../../components/hooks/useRequest";
+import { setSearch } from "../store/SearchSlice";
 
 const pages = ["Home", "Films", "TV Show"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: red[500],
+    },
+    secondary: {
+      main: red[500],
+    },
+  },
+});
 
-function Navigation() {
+export default function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const dispatch = useDispatch();
+  const apiSearch = useSelector((state) => state.search.value);
+  const [inputValue, setInputValue] = React.useState("");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -38,8 +59,25 @@ function Navigation() {
     setAnchorElUser(null);
   };
 
+  const handleSearch = (e) => {
+    setInputValue(e.target.value);
+    dispatch(setSearch(e.target.value));
+  };
+
+  const apiData = useRequest(
+    `https://api.tvmaze.com/search/shows?q=${apiSearch}`
+  );
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: "rgba(20, 20,20, 0.5)" }}>
+    <AppBar
+      className="navigation-container"
+      sx={{
+        backgroundColor: "rgba(20, 20, 20, 0.7)",
+        position: "fixed",
+        zIndex: 100,
+        top: 0,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar
@@ -122,7 +160,6 @@ function Navigation() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                paddingRight: "200px",
               }}
             >
               {MENU.map(({ name, link }, index) => (
@@ -138,6 +175,26 @@ function Navigation() {
               ))}
             </Box>
           </Box>
+
+          <ThemeProvider theme={theme}>
+            <TextField
+              label="Поиск..."
+              value={inputValue}
+              onChange={handleSearch}
+              sx={{
+                width: "20rem",
+                marginRight: "5rem",
+                "& input": {
+                  width: "100%",
+                  borderColor: theme.palette.primary.main,
+                  color: "#fff",
+                },
+                "& label": {
+                  color: "#fff",
+                },
+              }}
+            />
+          </ThemeProvider>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -173,5 +230,3 @@ function Navigation() {
     </AppBar>
   );
 }
-
-export default Navigation;

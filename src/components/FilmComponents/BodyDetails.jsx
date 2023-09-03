@@ -33,8 +33,6 @@ function CustomTabPanel({ value, index, children }) {
 function BodyDetails({ activeTab, handleChangeTab, summary, status, genres }) {
   return (
     <ThemeProvider theme={theme}>
-      {" "}
-      {/* Добавили обертку в тему */}
       <>
         <div
           style={{

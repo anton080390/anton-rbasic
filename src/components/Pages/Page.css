@@ -19,3 +19,40 @@ p {
 .whiteNavLink {
   color: white;
 }
+
+.mySwiper {
+  width: 100%;
+  height: calc(100% - 4rem);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  /* display: block; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slideFilmCard {
+  max-width: 470px;
+  height: 220px;
+  position: relative;
+  transition: transform 1s, box-shadow 1s;
+  object-position: top;
+  border-radius: 0%;
+}
+
+.slideFilmCard:hover {
+  transform: scale(1.01);
+  box-shadow: 15px 15px 18px rgba(73, 24, 24, 0.8);
+}
