@@ -38,6 +38,18 @@ const TopFilmsCard = ({ id, title, premiered, image }) => {
             objectPosition: "top",
           }}
         />
+        <div
+          className="overlay"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(to bottom right, rgba(0, 0, 0, 0.9) 40%, transparent 100%)", // Градиент для затемнения по диагонали
+          }}
+        ></div>
       </div>
       <div
         style={{

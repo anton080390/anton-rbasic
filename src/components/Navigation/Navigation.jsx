@@ -39,6 +39,7 @@ export default function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [isSearchFocused, setIsSearchFocused] = React.useState(false); // Добавляем состояние для фокуса на поле поиска
 
   const dispatch = useDispatch();
   const apiSearch = useSelector((state) => state.search.value);
@@ -78,10 +79,20 @@ export default function Navigation() {
     `https://api.tvmaze.com/search/shows?q=${apiSearch}`
   );
 
+  const handleSearchFocus = () => {
+    setIsSearchFocused(true);
+  };
+
+  const handleSearchBlur = () => {
+    setIsSearchFocused(false);
+  };
+
   return (
     <React.Fragment>
       <AppBar
-        className="navigation-container"
+        className={`navigation-container ${
+          isSearchFocused ? "search-focused" : ""
+        }`}
         sx={{
           backgroundColor: "rgba(20, 20, 20, 0.7)",
           position: "fixed",
@@ -148,8 +159,10 @@ export default function Navigation() {
                 label="Поиск..."
                 value={inputValue}
                 onChange={handleSearch}
+                onFocus={handleSearchFocus}
+                onBlur={handleSearchBlur}
                 sx={{
-                  width: "20rem",
+                  width: isSearchFocused ? "23rem" : "20rem",
                   minWidth: "4rem",
                   marginRight: "5rem",
                   "& input": {

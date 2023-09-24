@@ -74,7 +74,7 @@ export default function FilmCard({ id, title, description, image, premiered }) {
             {!isMobile && (
               <Typography
                 style={{
-                  margin: "4px 0 15px",
+                  margin: "25px 0 55px",
                   textAlign: "left",
                 }}
               >

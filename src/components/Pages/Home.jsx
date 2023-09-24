@@ -46,7 +46,7 @@ function Home() {
     "https://dolphin-app-pc6ii.ondigitalocean.app/article/byGenre/Comedy"
   );
   const popularFilms = useRequest(
-    "https://dolphin-app-pc6ii.ondigitalocean.app/article"
+    "http://dolphin-app-pc6ii.ondigitalocean.app/article"
   );
 
   const isMobile = useMediaQuery("(max-width:600px)");
