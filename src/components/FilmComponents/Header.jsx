@@ -11,7 +11,8 @@ function Header({ name, rating, genres, schedule, premiered, image }) {
         alignItems: "start",
         width: "100%",
         padding: "20px",
-        flexDirection: "column",
+        flexDirection: "row",
+        flexWrap: "wrap",
       }}
     >
       <div style={{ marginLeft: "0.2rem" }}>

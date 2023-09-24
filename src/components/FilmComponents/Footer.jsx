@@ -13,7 +13,7 @@ function Footer() {
         backgroundColor: "rgb(20, 20, 20)",
         color: "white",
         padding: "2rem 0",
-        marginTop: "5rem",
+        marginTop: "2rem",
       }}
     >
       <hr />

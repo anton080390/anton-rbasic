@@ -24,7 +24,7 @@ function StarringItem({ showId }) {
         );
         const cast = response.data;
         setAllActors(cast);
-        setVisibleActors(cast.slice(0, isMobile ? 1 : 4));
+        setVisibleActors(cast.slice(0, isMobile ? 1 : 3));
       } catch (error) {
         console.error(error);
       }
@@ -46,11 +46,16 @@ function StarringItem({ showId }) {
     showAllButton = (
       <button
         style={{
+          marginTop: "1rem",
+          borderRadius: "10px",
           marginLeft: "3rem",
-          border: "none",
+          border: "solid rgb(235, 84, 68)",
           color: "rgb(235, 84, 68)",
           background: "transparent",
           cursor: "pointer",
+          width: "10rem",
+          height: "2rem",
+          fontSize: "25px",
         }}
         onClick={toggleShowAllActors}
       >
@@ -72,6 +77,7 @@ function StarringItem({ showId }) {
         style={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center", // Центрирование по вертикали
           padding: 0,
           margin: "auto",
         }}
@@ -89,6 +95,7 @@ function StarringItem({ showId }) {
                   flexDirection: "column",
                   alignItems: "center",
                   minHeight: "300px",
+                  marginRight: "2rem",
                   border: "none",
                   boxShadow: "none",
                   textDecoration: "none",
