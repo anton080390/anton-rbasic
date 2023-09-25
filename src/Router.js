@@ -6,6 +6,7 @@ import NotFound from "./components/Pages/NotFound";
 import FilmDetails from "./components/Pages/FilmDetails";
 import Register from "./components/Pages/Auth/Register";
 import Auth from "./components/Pages/Auth/Register";
+import Tvshows from "./components/Pages/Tvshows";
 import PrivateRoute from "./components/PriveteRoute/PrivetRoute";
 import Actor from "./components/Pages/Actor";
 import ViewAllShows from "./components/Pages/ViewAllShows";
@@ -21,12 +22,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/films",
-        element: (
-          <PrivateRoute>
-            <Films />
-          </PrivateRoute>
-        ),
+        path: "/tvshows",
+        element: <Tvshows />,
       },
       {
         path: "/films/:filmId",

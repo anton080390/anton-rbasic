@@ -7,10 +7,6 @@ export const MENU = [
     link: "/home",
   },
   {
-    name: "films",
-    link: "/films",
-  },
-  {
     name: "TV shows",
     link: "/tvshows",
   },

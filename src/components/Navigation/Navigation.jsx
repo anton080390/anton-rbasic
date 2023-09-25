@@ -22,7 +22,7 @@ import useRequest from "../../components/hooks/useRequest";
 import { setSearch } from "../store/SearchSlice";
 import Drawer from "@mui/material/Drawer";
 
-const pages = ["Home", "Films", "TV Show"];
+const pages = ["Home", "TV Show"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const theme = createTheme({
   palette: {
