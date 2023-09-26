@@ -91,7 +91,7 @@ function BodyDetails({ activeTab, handleChangeTab, summary, series, genres }) {
               style={{
                 color: "white",
                 height: "200px",
-                overflow: "scroll",
+                overflow: "auto",
               }}
             />
           </CustomTabPanel>
@@ -109,7 +109,7 @@ function BodyDetails({ activeTab, handleChangeTab, summary, series, genres }) {
                 color: "white",
                 width: "100%",
                 height: "200px",
-                overflowY: "scroll",
+                overflow: "auto",
               }}
             >
               <thead>

@@ -39,7 +39,7 @@ export default function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-  const [isSearchFocused, setIsSearchFocused] = React.useState(false); // Добавляем состояние для фокуса на поле поиска
+  const [isSearchFocused, setIsSearchFocused] = React.useState(false);
 
   const dispatch = useDispatch();
   const apiSearch = useSelector((state) => state.search.value);
