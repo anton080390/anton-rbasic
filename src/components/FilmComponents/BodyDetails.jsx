@@ -26,7 +26,7 @@ function CustomTabPanel({ value, index, children }) {
       aria-labelledby={`film-tab-${index}`}
     >
       {value === index && (
-        <Box p={3} style={{ maxHeight: "200px", overflowY: "scroll" }}>
+        <Box p={3} style={{ maxHeight: "200px", overflowY: "auto" }}>
           {children}
         </Box>
       )}
