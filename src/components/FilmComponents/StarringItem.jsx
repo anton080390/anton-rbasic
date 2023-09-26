@@ -126,7 +126,7 @@ function StarringItem({ showId }) {
                     <CardMedia
                       component="img"
                       height="200"
-                      image={actor.person.image.original}
+                      image={actor.person.image.medium}
                       alt={actor.person.name}
                       style={{
                         borderRadius: "20%",
