@@ -1,13 +1,13 @@
 Frontend implementation of a movie database with the TVmaze API.
 
-Time Taken:
+<b>Time Taken:</b><br />
 1 Month
 
-Technologies Used:<br />
-ReactJS
-React Router
-HTML
-CSS
+<b>Technologies Used:</b><br />
+ReactJS<br />
+React Router<br />
+HTML<br />
+CSS<br />
 
-Front-End:
+<b>Front-End:</b><br />
 The frontend is fully developed in ReactJS.
