@@ -3,7 +3,7 @@ Frontend implementation of a movie database with the TVmaze API.
 Time Taken:
 1 Month
 
-Technologies Used:
+Technologies Used:<br />
 ReactJS
 React Router
 HTML
